@@ -1,7 +1,3 @@
 
-My personal site. To run, simply:
+Repo for my personal website.
 
-```bash
-npm install
-npm run dev
-```
