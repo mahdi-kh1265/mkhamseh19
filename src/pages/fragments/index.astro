@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fragments } from '../../data/fragments';
+
+// Sort by date descending
+const sorted = [...fragments].sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<BaseLayout title="fragments — Mahdi Khamseh">
+  <h1><strong>fragments</strong></h1>
+  <p>small prose works, mostly unfinished.</p>
+
+  <div style="margin-top: 1.5em;">
+    {sorted.map((f) => (
+      <div class="fragment-index-item">
+        <span class="fragment-date">{f.date}</span>
+        <a href={`/fragments/${f.slug}`}>{f.title}</a>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

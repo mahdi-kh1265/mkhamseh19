@@ -1,0 +1,512 @@
+/* ===========================
+   global.css — warm old-web
+   =========================== */
+
+/* Palette A: paper + dark green/slate (active) */
+:root {
+  --bg: #f1ede1;
+  --text: #16130f;
+  --muted: #625c50;
+  --link: #073f8c;
+  --visited: #5b2b72;
+  --nav-bg: #26372f;
+  --nav-bg-active: #18241e;
+  --nav-border-light: #7d8a7f;
+  --nav-border-dark: #101611;
+  --rule: #b9b0a0;
+  --button-bg: #e4e0d4;
+}
+
+/*
+Palette B: indigo
+:root {
+  --bg: #f4efe4;
+  --text: #151515;
+  --muted: #615b52;
+  --link: #003c99;
+  --visited: #5a246b;
+  --nav-bg: #302b63;
+  --nav-bg-active: #1d193f;
+  --nav-border-light: #7770aa;
+  --nav-border-dark: #171331;
+  --rule: #b9af9d;
+}
+*/
+
+/*
+Palette C: oxide
+:root {
+  --bg: #f6efe1;
+  --text: #16120f;
+  --muted: #665d52;
+  --link: #0645ad;
+  --visited: #6b2f5b;
+  --nav-bg: #6b2d1f;
+  --nav-bg-active: #42170f;
+  --nav-border-light: #a35c46;
+  --nav-border-dark: #2a0f09;
+  --rule: #bcae9b;
+}
+*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* --- Links --- */
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Headings --- */
+
+h1 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: var(--muted);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+/* --- Paragraphs --- */
+
+p {
+  margin-bottom: 1em;
+  max-width: 640px;
+}
+
+/* --- Lists --- */
+
+ul, ol {
+  padding-left: 1.2em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+/* --- Buttons (general) --- */
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 2px 8px;
+  border: 1px solid #555;
+  background: var(--button-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d6d2c6;
+}
+
+button:active {
+  background: #c8c4b8;
+}
+
+/* --- Inputs --- */
+
+input[type="text"] {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 2px 4px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--text);
+}
+
+input[type="text"]:focus {
+  outline: 1px solid var(--muted);
+}
+
+/* --- Centered page shell --- */
+
+.site-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.site-shell.wide {
+  max-width: 1120px;
+}
+
+/* --- Top Navigation (old-web buttons) --- */
+
+.top-nav {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 2rem 10px 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.top-nav a {
+  display: inline-block;
+  min-width: 86px;
+  padding: 3px 10px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  border: 2px outset var(--nav-border-light);
+  background: var(--nav-bg);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.top-nav a:visited {
+  color: #fff;
+}
+
+.top-nav a:hover {
+  background: #344a3f;
+  color: #fff;
+}
+
+.top-nav a.active {
+  border: 2px inset var(--nav-border-dark);
+  background: var(--nav-bg-active);
+  color: #ccc;
+}
+
+/* --- Layout (main content) --- */
+
+.main-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 2rem 3rem;
+}
+
+.main-content.wide {
+  max-width: 1120px;
+}
+
+/* --- Home page --- */
+
+.home-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.1em;
+}
+
+.home-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 1.5em;
+}
+
+.home-links a {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-links a:hover {
+  color: var(--link);
+}
+
+.home-location {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.home-epigraph {
+  margin-top: 1.5em;
+  margin-bottom: 2.5em;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.home-grid {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  margin-top: 0.5em;
+}
+
+.home-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-photo-col {
+  flex-shrink: 0;
+}
+
+.home-photo {
+  display: block;
+  width: 320px;
+  max-width: 100%;
+  border: 1px solid var(--rule);
+}
+
+.home-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2em;
+}
+
+/* --- Poem / pre-formatted text --- */
+
+.poem {
+  white-space: pre-wrap;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+/* --- Commonplace entry --- */
+
+.commonplace-entry {
+  margin-bottom: 0.35em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.commonplace-type {
+  display: inline-block;
+  width: 70px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.commonplace-note {
+  display: block;
+  margin-left: 70px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.1em;
+  margin-bottom: 0.4em;
+  white-space: normal;
+}
+
+/* --- Fragment index --- */
+
+.fragment-index-item {
+  margin-bottom: 0.3em;
+}
+
+.fragment-date {
+  display: inline-block;
+  width: 110px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* --- Fragment page --- */
+
+.fragment-header {
+  margin-bottom: 2em;
+}
+
+.fragment-title {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 0.2em;
+}
+
+.fragment-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.2em;
+}
+
+.fragment-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.fragment-body {
+  margin-bottom: 3em;
+}
+
+.fragment-body img {
+  max-width: 100%;
+  display: block;
+  margin: 1em 0;
+}
+
+/* --- Fragment navigation (old-web buttons) --- */
+
+.fragment-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+}
+
+.fragment-nav a {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 2px outset var(--nav-border-light);
+  background: var(--nav-bg);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.fragment-nav a:visited {
+  color: #fff;
+}
+
+.fragment-nav a:hover {
+  background: #344a3f;
+  color: #fff;
+}
+
+.fragment-nav .nav-prev,
+.fragment-nav .nav-next {
+  min-width: 100px;
+}
+
+.fragment-nav .nav-next {
+  text-align: right;
+}
+
+.fragment-nav .nav-center {
+  text-align: center;
+}
+
+/* --- Stochastic Muse (standalone page) --- */
+
+.muse-section {
+  margin-top: 1em;
+}
+
+.muse-title {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  color: var(--muted);
+}
+
+.muse-desc {
+  font-size: 14px;
+  margin-bottom: 1em;
+  color: var(--muted);
+}
+
+.muse-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  max-width: 400px;
+  margin-bottom: 0.8em;
+}
+
+.muse-grid input[type="text"] {
+  width: 100%;
+}
+
+/* --- Colophon --- */
+
+.colophon-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.colophon-list li {
+  margin-bottom: 0.2em;
+}
+
+.colophon-list li::before {
+  content: none;
+}
+
+.colophon-tech {
+  margin-top: 2em;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.colophon-tech p {
+  margin-bottom: 0.3em;
+}
+
+/* --- Mobile --- */
+
+@media (max-width: 700px) {
+  .top-nav {
+    padding: 10px 1rem 8px 1rem;
+  }
+
+  .top-nav a {
+    min-width: 70px;
+    padding: 3px 7px;
+    font-size: 13px;
+  }
+
+  .main-content {
+    padding: 24px 1rem 2rem;
+  }
+
+  .muse-grid {
+    max-width: 100%;
+  }
+
+  .home-grid {
+    flex-direction: column;
+  }
+
+  .home-photo {
+    width: 220px;
+  }
+
+  .commonplace-entry {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { commonplace, type CommonplaceEntry } from '../data/commonplace';
+
+const returnTo = commonplace.filter((e) => e.section === 'return_to');
+const dontUnderstand = commonplace.filter((e) => e.section === 'dont_understand_yet');
+
+function renderEntry(entry: CommonplaceEntry) {
+  return entry;
+}
+---
+
+<BaseLayout title="commonplace — Mahdi Khamseh" wide={true}>
+  <h1><strong>commonplace</strong></h1>
+
+  <h2>things I return to</h2>
+
+  {returnTo.map((entry) => (
+    <div class="commonplace-entry">
+      <span class="commonplace-type">{entry.type}</span>
+      {entry.url ? (
+        <a href={entry.url}>
+          {entry.type === 'quote' ? entry.title : `"${entry.title}"`}
+        </a>
+      ) : (
+        <span>{entry.type === 'quote' ? entry.title : `"${entry.title}"`}</span>
+      )}
+      {entry.creator && <span> — {entry.creator}</span>}
+      {entry.year && <span> ({entry.year})</span>}
+      {entry.note && <span class="commonplace-note">{entry.note}</span>}
+    </div>
+  ))}
+
+  
+</BaseLayout>

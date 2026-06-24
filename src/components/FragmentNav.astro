@@ -1,0 +1,30 @@
+---
+interface Props {
+  prevSlug?: string;
+  prevTitle?: string;
+  nextSlug?: string;
+  nextTitle?: string;
+}
+
+const { prevSlug, prevTitle, nextSlug, nextTitle } = Astro.props;
+---
+
+<nav class="fragment-nav" aria-label="Fragment navigation">
+  <span class="nav-prev">
+    {prevSlug ? (
+      <a href={`/fragments/${prevSlug}`}>← previous</a>
+    ) : (
+      <span></span>
+    )}
+  </span>
+  <span class="nav-center">
+    <a href="/fragments">fragments</a>
+  </span>
+  <span class="nav-next">
+    {nextSlug ? (
+      <a href={`/fragments/${nextSlug}`}>next →</a>
+    ) : (
+      <span></span>
+    )}
+  </span>
+</nav>

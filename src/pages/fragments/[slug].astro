@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FragmentNav from '../../components/FragmentNav.astro';
+import { fragments } from '../../data/fragments';
+
+export function getStaticPaths() {
+  // Sort by date descending (same order as index)
+  const sorted = [...fragments].sort((a, b) => b.date.localeCompare(a.date));
+
+  return sorted.map((fragment, index) => {
+    const prev = sorted[index + 1] || null;
+    const next = sorted[index - 1] || null;
+    return {
+      params: { slug: fragment.slug },
+      props: {
+        fragment,
+        prevSlug: prev?.slug,
+        prevTitle: prev?.title,
+        nextSlug: next?.slug,
+        nextTitle: next?.title,
+      },
+    };
+  });
+}
+
+const { fragment, prevSlug, prevTitle, nextSlug, nextTitle } = Astro.props;
+---
+
+<BaseLayout title={`${fragment.title} — Mahdi Khamseh`}>
+  <div class="fragment-header">
+    <h1 class="fragment-title">{fragment.title}</h1>
+    {fragment.subtitle && <p class="fragment-subtitle">{fragment.subtitle}</p>}
+    <p class="fragment-meta">{fragment.date}</p>
+  </div>
+
+  <div class="fragment-body">
+    {fragment.image && (
+      <img src={fragment.image} alt={fragment.alt || ''} />
+    )}
+    {fragment.body && (
+      fragment.type === 'poem' ? (
+        <div class="poem" set:html={fragment.body} />
+      ) : (
+        <p set:html={fragment.body} />
+      )
+    )}
+  </div>
+
+  <FragmentNav
+    prevSlug={prevSlug}
+    prevTitle={prevTitle}
+    nextSlug={nextSlug}
+    nextTitle={nextTitle}
+  />
+</BaseLayout>

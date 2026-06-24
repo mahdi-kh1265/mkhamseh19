@@ -1,0 +1,31 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: '/', label: 'home' },
+  { href: '/commonplace', label: 'commonplace' },
+  { href: '/fragments', label: 'fragments' },
+  { href: '/muse', label: 'muse' },
+  { href: '/colophon', label: 'colophon' },
+];
+
+function isCurrent(href: string, current: string): boolean {
+  if (href === '/') return current === '/' || current === '';
+  return current.startsWith(href);
+}
+---
+
+<nav class="top-nav">
+  {links.map(link => (
+    <a
+      href={link.href}
+      class:list={[{ active: isCurrent(link.href, currentPath) }]}
+    >
+      {link.label}
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = '2026-06-23';
+---
+
+<BaseLayout title="colophon — Mahdi Khamseh">
+  <h1><strong>colophon</strong></h1>
+
+  <p>
+    this site is hand-written — it changes when I remember it exists.
+  </p>
+
+  <p style="margin-top: 1.5em;">
+    inspiration taken from <a href="https://paulgraham.com/">Paul Graham</a> and <a href="https://patrickcollison.com/">Patrick Collison</a>'s personal sites.
+  </p>
+
+  <p>
+    The stochastic muse is a small poetry machine. It takes six words and returns three lines using a Bayesian model trained on the prose, poetry, and film of the <em>commonplace</em> tab.
+    Go check it out!
+  </p>
+
+  <div class="colophon-tech">
+    <p>made with: Astro</p>
+    <p>type: Georgia / Times / system serif</p>
+    <p>hosted on: somewhere static</p>
+    <p>last updated: {lastUpdated}</p>
+  </div>
+</BaseLayout>
