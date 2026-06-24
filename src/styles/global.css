@@ -477,6 +477,25 @@ input[type="text"]:focus {
   margin-bottom: 0.3em;
 }
 
+/* --- Safe global sizing --- */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 /* --- Mobile --- */
 
 @media (max-width: 700px) {
@@ -494,19 +513,40 @@ input[type="text"]:focus {
     padding: 24px 1rem 2rem;
   }
 
+  .site-shell {
+    padding: 0 1rem 2rem;
+  }
+
   .muse-grid {
     max-width: 100%;
   }
 
   .home-grid {
     flex-direction: column;
+    margin-top: 0 !important;
+  }
+
+  .home-text {
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .home-photo-col {
+    order: -1;
   }
 
   .home-photo {
-    width: 220px;
+    width: 100% !important;
+    max-width: 320px;
   }
 
   .commonplace-entry {
     white-space: normal;
+  }
+
+  .fragment-date {
+    display: block;
+    width: auto;
+    margin-bottom: 0.1em;
   }
 }
