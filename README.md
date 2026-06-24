@@ -1,6 +1,5 @@
-# Mahdi Khamseh
 
-Personal site.
+My personal site. To run, simply:
 
 ```bash
 npm install
