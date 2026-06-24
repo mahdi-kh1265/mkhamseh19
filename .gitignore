@@ -8,17 +8,9 @@ dist/
 .DS_Store
 Thumbs.db
 
-# AI scratch / prompt files
-.claude/
-claude/
-claude-history/
-claude-prompts/
-ai-history/
-ai-prompts/
-prompts/
-scratch/
-handoff/
-*.prompt.md
-*prompt*.md
-*claude*.md
-*chat*.md
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
